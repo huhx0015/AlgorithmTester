@@ -9,6 +9,14 @@ Algorithm Tester: This project contains several solutions for algorithms and dat
 
 ## Resources
 
+### References
+
+* CareerCup: https://www.careercup.com/
+* Cracking the Coding Interview: http://www.crackingthecodinginterview.com/
+* Hacker Rank: https://www.hackerrank.com/
+* Interview Cake: https://www.interviewcake.com/
+* LeetCode: https://leetcode.com/
+
 ### Libraries
 
 * JUnit 5: https://github.com/junit-team/junit5
