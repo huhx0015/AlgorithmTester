@@ -52,14 +52,13 @@ public class CompareTriplets {
         int b1 = in.nextInt();
         int b2 = in.nextInt();
         int[] result = solve(a0, a1, a2, b0, b1, b2);
+
         String separator = "", delimiter = " ";
+
         for (Integer value : result) {
             System.out.print(separator + value);
             separator = delimiter;
         }
         System.out.println("");
-
-
     }
-
 }
