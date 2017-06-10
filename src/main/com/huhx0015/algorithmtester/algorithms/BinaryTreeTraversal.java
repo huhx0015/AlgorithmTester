@@ -8,23 +8,19 @@ import main.com.huhx0015.algorithmtester.datastructures.Node;
 public class BinaryTreeTraversal {
 
     // LEFT - NODE - RIGHT
-    public void inOrderTraversal(Node node) {
+    public static void inOrderTraversal(Node node) {
 
-        // If node is NOT null...
         if (node != null) {
-
             inOrderTraversal(node.left); // Traverse LEFT side.
             visit(node); // Do something with our NODE.
             inOrderTraversal(node.right); // Traverse RIGHT side.
         }
-
     }
 
     // NODE - LEFT - RIGHT
-    public void preOrderTraversal(Node node) {
+    public static void preOrderTraversal(Node node) {
 
         if (node != null) {
-
             visit(node); // Do something with our NODE.
             preOrderTraversal(node.left); // Traverse LEFT side.
             preOrderTraversal(node.right); // Traverse RIGHT side.
@@ -32,17 +28,17 @@ public class BinaryTreeTraversal {
     }
 
     // LEFT - RIGHT - NODE
-    public void postOrderTraversal(Node node) {
+    public static void postOrderTraversal(Node node) {
 
         if (node != null) {
-
             postOrderTraversal(node.left); // Traverse LEFT side.
             postOrderTraversal(node.right); // Traverse RIGHT side.
             visit(node); // Do something with our NODE.
         }
     }
 
-    public void visit(Node node) {
-        System.out.println("Node visited: " + node.name);
+    private static void visit(Node node) {
+        System.out.println("Node visited: " + node.value);
+        node.visited = true;
     }
 }

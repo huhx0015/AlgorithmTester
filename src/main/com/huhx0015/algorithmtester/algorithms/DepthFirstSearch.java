@@ -51,7 +51,7 @@ public class DepthFirstSearch {
         }
     }
 
-    public static void visit(Node node) {
+    private static void visit(Node node) {
         System.out.println("search(): Visited Node: " + node.name);
     }
 }
