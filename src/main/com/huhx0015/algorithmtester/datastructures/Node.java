@@ -25,11 +25,6 @@ public class Node {
         this.value = value;
     }
 
-//    public Node(String name, Node[] children) {
-//        this.name = name;
-//        this.children = children;
-//    }
-
     public Node(String name, Node[] adjacent) {
         this.name = name;
         this.adjacent = adjacent;

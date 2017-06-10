@@ -9,8 +9,6 @@ import java.util.EmptyStackException;
 
  * Should have Push, Pop, Max.
  *
- * Asked At: Clover Networks
- *
  * Note 1: This function does it in O(1) runtime. Space time for each method is O(n), based on how many elements are in
  * the stack.
  * Note 2: Does not handle dynamic array re-creation.

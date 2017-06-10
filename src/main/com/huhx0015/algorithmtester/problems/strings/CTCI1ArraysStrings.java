@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
+ * Cracking the Coding Interview:
+ *
  * Created by Michael Yoon Huh on 2/22/2017.
  */
 
@@ -361,6 +363,4 @@ public class CTCI1ArraysStrings {
             return false;
         }
     }
-
-    /** CTCI : 1.6 SOLUTIONS ___________________________________________________________________ **/
 }

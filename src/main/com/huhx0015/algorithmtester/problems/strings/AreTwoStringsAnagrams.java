@@ -9,7 +9,6 @@ import java.util.Map;
  * DEFINITION OF ANAGRAM:
  * A word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
  *
- * Asked at Scoop Technologies.
  */
 public class AreTwoStringsAnagrams {
 

@@ -1,5 +1,7 @@
 package main.com.huhx0015.algorithmtester.problems.hackerrank;
 
+import java.util.*;
+
 /**
  *
  * HackerRank
@@ -10,7 +12,6 @@ package main.com.huhx0015.algorithmtester.problems.hackerrank;
  *
  * Created by Michael Yoon Huh on 5/2/2017.
  */
-import java.util.*;
 
 public class CompareTriplets {
 

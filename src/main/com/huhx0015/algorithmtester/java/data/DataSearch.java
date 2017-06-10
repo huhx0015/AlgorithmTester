@@ -41,7 +41,7 @@ public class DataSearch {
         }
     }
 
-    // Uses indexOf
+    // searchHelper1(): Uses indexOf() method.
     private static int searchHelper1(String text, String searchWord) {
 
         int wordCount = 0; // Stores the number of times the word is found.
@@ -62,7 +62,7 @@ public class DataSearch {
         return wordCount;
     }
 
-    // Uses Pattern and Matcher
+    // searchHelper2(): Uses Pattern and Matcher methods.
     private static int searchHelper2(String text, String searchWord) {
 
         int wordCount = 0; // Stores the number of times the word is found.

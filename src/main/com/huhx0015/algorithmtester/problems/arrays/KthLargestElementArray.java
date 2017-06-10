@@ -21,7 +21,6 @@ import java.util.PriorityQueue;
  *
  * https://leetcode.com/problems/kth-largest-element-in-an-array/#/description
  *
- * Hint: QuickSort?
  */
 public class KthLargestElementArray {
 
