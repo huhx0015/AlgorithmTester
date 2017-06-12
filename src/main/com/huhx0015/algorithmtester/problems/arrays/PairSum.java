@@ -9,8 +9,6 @@ import java.util.Map;
  *
  * Find all unique pairs in the array that are the sum of the magic number. All numbers in the array are unique.
  *
- * Asked at Razer.
- *
  * input: [1,3,5,7]
  * output: [1,3] [3,5] [5,7]
  */
