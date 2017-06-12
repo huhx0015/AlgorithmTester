@@ -1,6 +1,6 @@
 package test.com.huhx0015.algorithmtester.problems.arrays
 
-import main.com.huhx0015.algorithmtester.problems.arrays.SumOfArray
+import main.com.huhx0015.algorithmtester.problems.arrays.SumOfArray.sumOfArray
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
@@ -14,7 +14,7 @@ internal class SumOfArrayTest {
 
     @Test
     fun testSumOfArray() {
-        val testSum = SumOfArray.sumOfArray(TEST_SUM_ARRAY)
+        val testSum = sumOfArray(TEST_SUM_ARRAY)
         assertEquals(TEST_SUM_EXPECTED, testSum)
     }
 }

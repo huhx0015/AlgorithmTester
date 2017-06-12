@@ -46,7 +46,7 @@ object SumOfArray {
         println(sum)
     }
 
-    fun sumOfArray(array: IntArray): Int {
+    @JvmStatic fun sumOfArray(array: IntArray): Int {
         var sum = 0
         for (x in array) {
             sum += x
