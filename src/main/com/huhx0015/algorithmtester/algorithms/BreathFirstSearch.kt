@@ -5,7 +5,7 @@ import java.util.LinkedList
 
 /**
  * Created by Michael Yoon Huh on 4/29/2017.
-
+ *
  * Result with test node should be: A, B, D, C,
  */
 object BreathFirstSearch {
@@ -43,17 +43,18 @@ object BreathFirstSearch {
             // We then visit adjacent nodes, if they exist.
             if (frontNode.adjacent != null) {
 
-                for (node in frontNode.adjacent) {
+                frontNode.adjacent?.let {
+                    for (node in it) {
 
-                    // Checks if this node is visited or not.
-                    if (node.visited == false) {
-                        node.visited = true
-                        queue.add(node) // The node is added to the queue.
+                        // Checks if this node is visited or not.
+                        if (node.visited == false) {
+                            node.visited = true
+                            queue.add(node) // The node is added to the queue.
+                        }
                     }
                 }
             }
         }
-
     }
 
     private fun visit(node: Node) {

@@ -4,7 +4,7 @@ import main.com.huhx0015.algorithmtester.datastructures.Node
 
 /**
  * Created by Michael Yoon Huh on 4/29/2017.
-
+ *
  * Result with test node should be: A, B, C, E, D, F
  */
 object DepthFirstSearch {
@@ -40,12 +40,13 @@ object DepthFirstSearch {
         // Check if root has any adjacent nodes.
         if (root.adjacent != null) {
 
-            // Iterate through each adjacent node.
-            for (node in root.adjacent) {
+            root.adjacent?.let {
+                for (node in it) {
 
-                // If the node has not been visited yet, we search it.
-                if (node.visited == false) {
-                    search(node)
+                    // If the node has not been visited yet, we search it.
+                    if (node.visited == false) {
+                        search(node)
+                    }
                 }
             }
         }
