@@ -127,6 +127,7 @@ object DataSearch {
 
     private fun openFileMethod2(fileName: String): String? {
         try {
+
             // Initializes the FileReader and Scanner for opening and reading the file contents.
             val fileReader = FileReader(fileName)
             val scannerInput = Scanner(fileReader)

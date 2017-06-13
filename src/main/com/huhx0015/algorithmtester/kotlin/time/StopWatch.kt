@@ -121,7 +121,6 @@ class StopWatch {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-
         }
     }
 }
