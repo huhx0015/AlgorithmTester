@@ -10,13 +10,13 @@ import org.junit.jupiter.api.Assertions.*
 internal class KthLargestElementArrayTest {
 
     @Test
-    fun findKthLargestUsingSort() {
+    fun testFindKthLargestUsingSort() {
         val largestElement = KthLargestElementArray.findKthLargestUsingSort(TEST_ARRAY, TEST_KTH)
         assertEquals(TEST_RESULT, largestElement)
     }
 
     @Test
-    fun findKthLargest() {
+    fun testFindKthLargest() {
         val largestElement = KthLargestElementArray.findKthLargest(TEST_ARRAY, TEST_KTH)
         assertEquals(TEST_RESULT, largestElement)
     }

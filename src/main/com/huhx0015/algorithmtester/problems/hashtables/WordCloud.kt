@@ -3,37 +3,35 @@ package main.com.huhx0015.algorithmtester.problems.hashtables
 import java.util.HashMap
 
 /**
+ * Created by Michael Yoon Huh on 5/24/2017.
+ *
  * Interview Cake:
-
+ *
  * You want to build a word cloud, an infographic where the size of a word corresponds to how often it appears in the
  * body of text.
-
+ *
  * To do this, you'll need data. Write code that takes a long string and builds its word cloud data in a hash map ↴ ,
  * where the keys are words and the values are the number of times the words occurred.
-
+ *
  * Think about capitalized words. For example, look at these sentences:
-
+ *
  * "After beating the eggs, Dana read the next step:"
  * "Add milk and eggs, then add flour and sugar."
-
+ *
  * What do we want to do with "After", "Dana", and "add"? In this example, your final hash map should include one "Add"
  * or "add" with a value of 2. Make reasonable (not necessarily perfect) decisions about cases like "After" and "Dana".
-
+ *
  * Assume the input will only contain words and standard punctuation.
-
- * Created by Michael Yoon Huh on 5/24/2017.
  */
 object WordCloud {
 
     @JvmStatic fun main(args: Array<String>) {
-
         val words = "After beating the eggs, Dana read the next step: Add milk and eggs, then add flour and sugar."
         val words2 = "We came, we saw, we conquered...then we ate Bill's (Mille-Feuille) cake. The bill came to five dollars."
 
         val wordMap = wordCloud(words2)
 
         for ((word, count) in wordMap!!) {
-
             println("Word: $word | Count: $count")
         }
     }
@@ -55,7 +53,11 @@ object WordCloud {
             // Checks if character is alphabetical character.
             if (isCharacter(c)) {
                 wordBuilder.append(c)
-            } else {
+            }
+
+            // If a non-character has been encountered and a word exists in wordBuilder, we've reached the end of the
+            // word and add it to the HashMap.
+            else {
 
                 if (wordBuilder.isNotEmpty()) {
 
@@ -73,8 +75,7 @@ object WordCloud {
 
                 // Resets the StringBuilder.
                 wordBuilder = StringBuilder()
-            }// If a non-character has been encountered and a word exists in wordBuilder, we've reached the end of the
-            // word and add it to the HashMap.
+            }
         }
 
         return wordMap

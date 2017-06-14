@@ -4,9 +4,9 @@ import java.util.Collections
 import java.util.LinkedList
 
 /**
- * Cracking the Coding Interview:
-
  * Created by Michael Yoon Huh on 3/29/2017.
+ *
+ * Cracking the Coding Interview:
  */
 
 object CTCI2LinkedLists {
@@ -21,9 +21,11 @@ object CTCI2LinkedLists {
         Collections.sort(list, null) // Sorts the linked list.
 
         // Time Complexity: O(n)
-        for (i in list.indices) {
-            removeDupIntegerHelper(list[i], i + 1, list)
-            println("removeDupIntegers(): Element " + i + ": " + list[i])
+        for (i in 0..list.size) {
+            if (i < list.size) {
+                removeDupIntegerHelper(list[i], i + 1, list)
+                println("removeDupIntegers(): Element " + i + ": " + list[i])
+            }
         }
         return list
     }

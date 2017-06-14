@@ -40,7 +40,7 @@ object KthToTheLastNode {
 
     // Time Complexity: O(2n) = O(n) and O(1) space.
     // Brute Force Method
-    private fun kthToLastNodeBruteForce(kth: Int, node: LinkedListNode?): LinkedListNode? {
+    fun kthToLastNodeBruteForce(kth: Int, node: LinkedListNode?): LinkedListNode? {
 
         // Valid parameter checks:
         if (node == null) {
@@ -71,7 +71,7 @@ object KthToTheLastNode {
 
     // kthToLastNode using HashMap
     // Complexity O(1n) = O(n), but because of HashMap, space complexity is O(n);
-    private fun kthToLastNode(kth: Int, node: LinkedListNode?): LinkedListNode? {
+    fun kthToLastNode(kth: Int, node: LinkedListNode?): LinkedListNode? {
 
         if (node == null) {
             return null
@@ -88,7 +88,10 @@ object KthToTheLastNode {
         while (currentNode != null) {
             nodeCount++
             currentNode = currentNode.next
-            nodeMap.put(nodeCount, currentNode!!)
+
+            if (currentNode != null) {
+                nodeMap.put(nodeCount, currentNode)
+            }
         }
 
         // Fetches the node from the hashmap.

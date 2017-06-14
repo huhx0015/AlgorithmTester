@@ -13,12 +13,12 @@ internal class AppleStockTradingTest {
     val TEST_MAX_PROFIT = 6
 
     @Test
-    fun getMaxProfit() {
+    fun testGetMaxProfit() {
         assertEquals(TEST_MAX_PROFIT, AppleStockTrading.getMaxProfit(TEST_STOCK_PRICES))
     }
 
     @Test
-    fun getMaxProfitWithUtils() {
+    fun testGetMaxProfitWithUtils() {
         assertEquals(TEST_MAX_PROFIT, AppleStockTrading.getMaxProfitWithUtils(TEST_STOCK_PRICES))
     }
 }

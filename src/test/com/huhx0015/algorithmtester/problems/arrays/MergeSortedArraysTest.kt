@@ -9,12 +9,12 @@ import org.junit.jupiter.api.Test
 internal class MergeSortedArraysTest {
 
     @Test
-    fun mergeSortedArrays() {
+    fun testMergeSortedArrays() {
         MergeSortedArrays.mergeSortedArrays(TEST_ARRAY, TEST_ALICE_ARRAY)
     }
 
     @Test
-    fun mergeSortedArraysBuiltIn() {
+    fun testMergeSortedArraysBuiltIn() {
         MergeSortedArrays.mergeSortedArraysBuiltIn(TEST_ARRAY, TEST_ALICE_ARRAY)
     }
 

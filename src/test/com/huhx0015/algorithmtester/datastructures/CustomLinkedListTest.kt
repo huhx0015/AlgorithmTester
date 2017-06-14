@@ -32,14 +32,14 @@ internal class CustomLinkedListTest {
     }
 
     @Test
-    fun getData() {
+    fun testGetData() {
         assertEquals(TEST_VALUE_3, mThirdLinkedList?.data)
         assertEquals(TEST_VALUE_1, mRootLinkedList?.data)
         assertEquals(TEST_VALUE_4, mFourthLinkedList?.data)
     }
 
     @Test
-    fun setData() {
+    fun testSetData() {
         mSecondLinkedList?.data = TEST_VALUE_ALT_2
         mFourthLinkedList?.data = TEST_VALUE_ALT_4
 
@@ -48,23 +48,23 @@ internal class CustomLinkedListTest {
     }
 
     @Test
-    fun getHead() {
+    fun testGetHead() {
         assertEquals(mSecondLinkedList, mThirdLinkedList?.head)
     }
 
     @Test
-    fun setHead() {
+    fun testSetHead() {
         mRootLinkedList?.head = mFourthLinkedList
         assertEquals(TEST_VALUE_4, mRootLinkedList?.head?.data)
     }
 
     @Test
-    fun getTail() {
+    fun testGetTail() {
         assertEquals(mThirdLinkedList, mSecondLinkedList?.tail)
     }
 
     @Test
-    fun setTail() {
+    fun testSetTail() {
         mFourthLinkedList?.tail = mRootLinkedList
         assertEquals(TEST_VALUE_1, mFourthLinkedList?.tail?.data)
     }

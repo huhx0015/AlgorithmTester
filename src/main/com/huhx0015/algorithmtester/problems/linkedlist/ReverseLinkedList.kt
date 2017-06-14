@@ -48,7 +48,7 @@ object ReverseLinkedList {
     // My attempt. (Recursion)
     // Complexity: O(n), since it loops through all the elements once. Slightly inefficient on space complexity, since
     // reversedNode variable is created each time for every recursive call.
-    fun reverseRecursiveMethod1(node: LinkedListNode, previous: LinkedListNode): LinkedListNode {
+    fun reverseRecursiveMethod1(node: LinkedListNode, previous: LinkedListNode?): LinkedListNode {
 
         val reversedNode: LinkedListNode // Stores the new head of the LinkedList.
 
@@ -58,12 +58,15 @@ object ReverseLinkedList {
 
             node.next = previous // Sets the next node to be the previous node.
             return node
-        } else {
+        }
+
+        // If previous node is not null (indicating the original head), reverseRecursiveMethod1 is recursively called onto
+        // node.next and node.
+        else {
             println("RECURSION: Calling reverseRecursiveMethod1() on Node: " + node.value)
             reversedNode = reverseRecursiveMethod1(node.next!!, node)
             node.next = previous // Sets the next node to be the previous node.
-        }// If previous node is not null (indicating the original head), reverseRecursiveMethod1 is recursively called onto
-        // node.next and node.
+        }
 
         return reversedNode
     }
@@ -91,7 +94,7 @@ object ReverseLinkedList {
     }
 
     // LeetCode Solution (Recursive)
-    private fun reverseRecursiveMethod3(node: LinkedListNode?, newHead: LinkedListNode?): LinkedListNode? {
+    fun reverseRecursiveMethod3(node: LinkedListNode?, newHead: LinkedListNode?): LinkedListNode? {
 
         // If current node is null, we have reached the last node of the original list.
         if (node == null) {
