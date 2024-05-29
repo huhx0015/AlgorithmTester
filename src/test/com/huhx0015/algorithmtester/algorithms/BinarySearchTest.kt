@@ -1,12 +1,12 @@
 package test.com.huhx0015.algorithmtester.algorithms
 
 import main.com.huhx0015.algorithmtester.datastructures.Node
-import org.junit.jupiter.api.Test
 import main.com.huhx0015.algorithmtester.algorithms.BinarySearch.arraySearch
 import main.com.huhx0015.algorithmtester.algorithms.BinarySearch.nodeSearch
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 /**
  * Created by Michael Yoon Huh on 6/9/2017.
