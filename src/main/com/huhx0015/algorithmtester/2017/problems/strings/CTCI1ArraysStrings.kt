@@ -229,7 +229,7 @@ object CTCI1ArraysStrings {
     // PERMUTATION: REARRANGEMENT OF LETTERS.
     // OPERATING TIME: O(N)
     fun isStringPermutationOfPalindrome(input: String): Boolean {
-        val characterMap = getCharacterFrequencyTable(input.toLowerCase())
+        val characterMap = getCharacterFrequencyTable(input.lowercase())
 
         // Check characters to see if there is more than one odd character.
         return !checkMoreThanOneOdd(characterMap)

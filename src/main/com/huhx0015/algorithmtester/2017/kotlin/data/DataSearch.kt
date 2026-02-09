@@ -31,8 +31,8 @@ object DataSearch {
             println("File Contents:\n" + fileText)
 
             // Converts the file text contents to lower case to find all instances of the word, regardless of case.
-            val text = fileText.toLowerCase()
-            val searchWord = word.toLowerCase()
+            val text = fileText.lowercase()
+            val searchWord = word.lowercase()
 
             val wordCount = searchHelper2(text, searchWord) // Gets the number of instances the word was found.
 

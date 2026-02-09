@@ -62,7 +62,7 @@ object WordCloud {
                 if (wordBuilder.isNotEmpty()) {
 
                     // Sets word to lower case so that capitalization doesn't matter.
-                    val wordToLowerCase = wordBuilder.toString().toLowerCase()
+                    val wordToLowerCase = wordBuilder.toString().lowercase()
 
                     // If this word already exists in the Hashmap, we need to get the count value and then increment it.
                     if (wordMap.containsKey(wordToLowerCase)) {
@@ -106,7 +106,7 @@ object WordCloud {
 
         for (word in wordList) {
 
-            val wordToLowerCase = word.toLowerCase() // Sets word to lower case so that capitalization doesn't matter.
+            val wordToLowerCase = word.lowercase() // Sets word to lower case so that capitalization doesn't matter.
 
             // If this word already exists in the Hashmap, we need to get the count value and then increment it.
             if (wordMap.containsKey(wordToLowerCase)) {

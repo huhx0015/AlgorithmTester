@@ -51,7 +51,7 @@ object PermutationPalidrome {
     fun isPalindrome(input: String): Boolean {
 
         // Converts input to lower case and creates a char array of characters from the input.
-        val charArray = input.toLowerCase().toCharArray()
+        val charArray = input.lowercase().toCharArray()
 
         // Uses a HashSet to store character frequency.
         val oddCharacters = HashSet<Char>()

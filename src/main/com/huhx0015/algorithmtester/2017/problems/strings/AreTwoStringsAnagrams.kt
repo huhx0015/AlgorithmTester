@@ -29,8 +29,8 @@ object AreTwoStringsAnagrams {
         val map = HashMap<Char, Int>() // Stores the character frequencies in this hashmap.
 
         // Convert the strings to char arrays.
-        val s1Array = s1.toLowerCase().toCharArray()
-        val s2Array = s2.toLowerCase().toCharArray()
+        val s1Array = s1.lowercase().toCharArray()
+        val s2Array = s2.lowercase().toCharArray()
 
         // Since the same length check has already been done, we can use the length of one of the strings.
         for (i in s1Array.indices) {
