@@ -3,8 +3,9 @@ package com.huhx0015.algorithmtester.twentytwentysix.problems.arrays
 /**
  * NeetCode.io
  *
- * Remove Element
- * EASY
+ * Problem: Remove Element
+ * Difficulty: EASY
+ * Pattern: Two-Pointer
  *
  * You are given an integer array nums and an integer val. Your task is to remove all occurrences of val from nums
  * in-place.
@@ -34,13 +35,12 @@ package com.huhx0015.algorithmtester.twentytwentysix.problems.arrays
  * Explanation: You should return k = 5 as we have 5 elements which are not equal to val = 2.
  *
  * Constraints:
- *
  * 0 <= nums.length <= 100
  * 0 <= nums[i] <= 50
  * 0 <= val <= 100
  *
  * Time complexity: O(n)
- * Space complexity:O(1)
+ * Space complexity: O(1)
  */
 
 object RemoveElement {

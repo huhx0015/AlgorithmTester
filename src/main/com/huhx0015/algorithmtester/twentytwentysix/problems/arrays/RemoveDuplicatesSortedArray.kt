@@ -3,8 +3,9 @@ package com.huhx0015.algorithmtester.twentytwentysix.problems.arrays
 /**
  * NeetCode.io
  *
- * Remove Duplicates From Sorted Array
- * EASY
+ * Problem: Remove Duplicates From Sorted Array
+ * Difficulty: EASY
+ * Pattern: Two-Pointer
  *
  * You are given an integer array nums sorted in non-decreasing order. Your task is to remove duplicates from nums in-place
  * so that each element appears only once.
@@ -35,13 +36,13 @@ package com.huhx0015.algorithmtester.twentytwentysix.problems.arrays
  * Explanation: You should return k = 3 as we have three unique elements.
  *
  * Constraints:
- *
  * 1 <= nums.length <= 30,000
  * -100 <= nums[i] <= 100
  * nums is sorted in non-decreasing order.
  *
  * Time Complexity: O(n) - we pass through the array once
  * Space Complexity: O(1) - we modify in-place with constant extra space
+ *
  * The sorted property ensures duplicates are adjacent, so comparing with the previous element is sufficient
  */
 object RemoveDuplicatesSortedArray {
