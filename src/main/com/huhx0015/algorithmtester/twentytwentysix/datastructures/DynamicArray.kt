@@ -44,6 +44,8 @@ package com.huhx0015.algorithmtester.twentytwentysix.datastructures
  * Note:
  *
  * The index i provided to get(int i) and set(int i) is guaranteed to be greater than or equal to 0 and less than the number of elements in the array.
+ *
+ * Time Complexity: O(n)
  */
 class DynamicArray(capacity: Int) {
 
