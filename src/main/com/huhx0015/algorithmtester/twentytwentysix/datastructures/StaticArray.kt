@@ -45,7 +45,7 @@ class StaticArray {
         // No need to 'remove' arr[i], since we already shifted
     }
 
-    fun printArr(array: IntArray, length: Int) {
+    fun printArray(array: IntArray, length: Int) {
         for (i in 0 until length) {
             print("${array[i]} ")
         }
