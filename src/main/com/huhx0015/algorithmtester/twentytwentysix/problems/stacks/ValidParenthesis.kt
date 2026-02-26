@@ -57,6 +57,7 @@ object ValidParenthesis {
     fun isValid(s: String): Boolean {
         if (s.isEmpty()) return false // Return false if string is empty, there are no parenthesis hence not valid.
         if (s.length == 1) return false // Return false if length is 1, not possible for parenthesis to be valid and hence not valid.
+        if (s.length % 2 != 0) return false // Return false if length is not divisible by 2, indicates an uneven string length which at least one parenthesis cannot be closed.
 
         val stack: Stack<Char> = Stack()
 

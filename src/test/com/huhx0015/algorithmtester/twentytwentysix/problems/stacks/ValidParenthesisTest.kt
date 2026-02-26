@@ -19,5 +19,13 @@ class ValidParenthesisTest {
         val input3 = "[(])"
         val valid3 = isValid(input3)
         assertEquals(false, valid3)
+
+        val input4 = "[[(())]]"
+        val valid4 = isValid(input4)
+        assertEquals(true, valid4)
+
+        val input5 = "[[(())]"
+        val valid5 = isValid(input5)
+        assertEquals(false, valid5)
     }
 }

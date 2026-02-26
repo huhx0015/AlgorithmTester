@@ -54,7 +54,7 @@ package com.huhx0015.algorithmtester.twentytwentysix.datastructures
  */
 class DynamicArray(capacity: Int) {
 
-    private var array: IntArray // Store this array
+    private var array: IntArray // Stores this array.
     private var arrayCapacity: Int // Capacity (number of elements that can fit in the array)
     private var arrayLength: Int = 0 // Size (number of elements) in the array
 
