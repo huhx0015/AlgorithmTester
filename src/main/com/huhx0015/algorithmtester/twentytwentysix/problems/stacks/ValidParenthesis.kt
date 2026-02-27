@@ -52,6 +52,10 @@ object ValidParenthesis {
         val input3 = "[(])"
         val valid3 = isValid(input3)
         println("Parenthesis input $input3 is valid: $valid3\n")
+
+        val input4 = "[[[[[((((()))))]]]]]"
+        val valid4 = isValid(input4)
+        println("Parenthesis input $input4 is valid: $valid4\n")
     }
 
     fun isValid(s: String): Boolean {
@@ -75,7 +79,7 @@ object ValidParenthesis {
                 }
             }
         }
-        val isValid = stack.isEmpty()
+        val isValid = stack.isEmpty() // If stack is empty, all parenthesis have been balanced.
         return isValid
     }
 }
