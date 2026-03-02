@@ -26,6 +26,9 @@ import com.huhx0015.algorithmtester.twentytwentysix.problems.arrays.RemoveElemen
  * 0 <= The length of the list <= 1000.
  * -1000 <= Node.val <= 1000
  *
+ * Complexity:
+ * Time: O(n) - each node visited once
+ * Space: O(n) - recursion stack (n calls)
  */
 object ReverseLinkedList {
 
@@ -58,17 +61,14 @@ object ReverseLinkedList {
     }
 
     fun reverseList(head: ListNode?): ListNode? {
-        if (head == null) return null // There is no next node in the linked list, so we just return the head node.
+        // If the current head node is null or the next node of the head is null, it's either an empty LinkedList or the
+        // end of the LinkedList has been reached.
+        if (head == null || head.next == null) return head
 
         var newHead: ListNode? = head // New head of the list to return in this function.
-
-        if (head.next != null) {
-            newHead = reverseList(head = head.next) // Use recursive function to get the last node in the list.
-            println("Updating the new head ListNode, the node value is: ${head.value}")
-        } else {
-            println("Found the last ListNode with value: ${head.value}")
-        }
+        newHead = reverseList(head = head.next) // Use recursive function to get the last node in the list.
         head.next?.next = head
+        head.next = null // Updates the original next link is invalidated. Needed to ensure that the recursive loop is broken.
 
         return newHead
     }
