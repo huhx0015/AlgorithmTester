@@ -1,8 +1,5 @@
 package com.huhx0015.algorithmtester.twentytwentysix.problems.linkedlist
 
-import com.huhx0015.algorithmtester.twentytwentysix.datastructures.SinglyLinkedList.ListNode
-import com.huhx0015.algorithmtester.twentytwentysix.problems.linkedlist.MergeTwoSortedLinkedList.mergeTwoLists
-
 /**
  * Leetcode
  *
