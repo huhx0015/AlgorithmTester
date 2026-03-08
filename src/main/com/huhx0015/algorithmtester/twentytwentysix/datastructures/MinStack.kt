@@ -35,7 +35,7 @@ package com.huhx0015.algorithmtester.twentytwentysix.datastructures
  * -2^31 <= val <= 2^31 - 1.
  * pop, top and getMin will always be called on non-empty stacks.
  */
-class MinStack() {
+class MinStack {
 
     private val stack: MutableList<Pair<Int, Int>> = mutableListOf() // Int List of Pair<Int, Int> to store the current value as first, and current minimum value as second.
 

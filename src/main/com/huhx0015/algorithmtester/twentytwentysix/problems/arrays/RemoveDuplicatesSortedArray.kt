@@ -48,7 +48,6 @@ package com.huhx0015.algorithmtester.twentytwentysix.problems.arrays
 object RemoveDuplicatesSortedArray {
 
     @JvmStatic fun main(args: Array<String>) {
-
         val input1 = intArrayOf(1, 1, 2, 3, 4)
         println("Input 1: ${input1.toList()}\n")
         val input1Result = removeDuplicates(input1)

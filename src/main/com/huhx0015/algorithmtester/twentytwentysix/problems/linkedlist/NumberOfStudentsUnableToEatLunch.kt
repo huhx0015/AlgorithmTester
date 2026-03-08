@@ -45,8 +45,6 @@ import java.util.Stack
  * students.length == sandwiches.length
  * sandwiches[i] is 0 or 1.
  * students[i] is 0 or 1.
- *
-
  */
 
 object NumberOfStudentsUnableToEatLunch {
