@@ -1,6 +1,6 @@
-package com.huhx0015.algorithmtester.twentytwentysix.problems.linkedlist
+package com.huhx0015.algorithmtester.twentytwentysix.datastructures
 
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 class DesignLinkedListTest {
@@ -17,8 +17,8 @@ class DesignLinkedListTest {
         myLinkedList.addAtTail(testValue2)
         myLinkedList.addAtIndex(testPosition1, testValue3) // linked list becomes 1->2->3
 
-        assertEquals(testValue3 , myLinkedList.get(testPosition1)) // return 2
+        Assertions.assertEquals(testValue3, myLinkedList.get(testPosition1)) // return 2
         myLinkedList.deleteAtIndex(testPosition1) // now the linked list is 1->3
-        assertEquals(testValue2 , myLinkedList.get(testPosition1)) // return 3
+        Assertions.assertEquals(testValue2, myLinkedList.get(testPosition1)) // return 3
     }
 }

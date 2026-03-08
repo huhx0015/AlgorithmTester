@@ -1,4 +1,4 @@
-package com.huhx0015.algorithmtester.twentytwentysix.problems.linkedlist
+package com.huhx0015.algorithmtester.twentytwentysix.datastructures
 
 /**
  * Leetcode
