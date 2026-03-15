@@ -7,8 +7,23 @@ package com.huhx0015.algorithmtester.twentyseventeen.sorting
  */
 object MergeSort {
 
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val inputArray1 = intArrayOf(7, 5, 3, 8)
+        val inputArray2 = intArrayOf(45, 72, 3, 4, 59, 100)
+
+        println("MergeSort (IntArray) starting, array is: ${inputArray1.toSet()}")
+        sort(inputArray1)
+        println("---------------------------------------------")
+
+        println("MergeSort (IntArray) starting, array is: ${inputArray2.toSet()}")
+        sort(inputArray2)
+        println("---------------------------------------------")
+    }
+
     fun sort(array: IntArray) {
         mergesort(array, 0, array.size - 1)
+        println("MergeSort (IntArray) completed, sorted array is: ${array.toSet()}")
     }
 
     // Big(O) Complexity: Best:	Ω(n log(n)) | Average:	Θ(n log(n))	| Worst: O(n log(n)) | Space Complexity:	O(n)

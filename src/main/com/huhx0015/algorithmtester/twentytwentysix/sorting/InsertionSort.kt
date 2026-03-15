@@ -113,6 +113,8 @@ object InsertionSort {
     }
 
     // insertionSort(): Insertion sort for MutableList<Pair> with return type List<List<Pair>.
+    // Time Complexity: O(n^2)
+    // Space Complexity: O(n^2)
     fun insertionSort(pairs: MutableList<Pair>): List<List<Pair>> {
 
         // Used to store the list of pairs when an insertion happens.
