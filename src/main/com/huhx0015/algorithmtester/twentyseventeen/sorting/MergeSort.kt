@@ -26,7 +26,7 @@ object MergeSort {
         println("MergeSort (IntArray) completed, sorted array is: ${array.toSet()}")
     }
 
-    // Big(O) Complexity: Best:	Ω(n log(n)) | Average:	Θ(n log(n))	| Worst: O(n log(n)) | Space Complexity:	O(n)
+    // Big(O) Complexity: Best:	Ω(n log(n)) | Average:	Θ(n log(n))	| Worst: O(n log(n)) | Space Complexity: O(n)
     fun mergesort(array: IntArray, low: Int, high: Int) {
 
         // Checks if low is smaller than high, if not then the array is sorted.
