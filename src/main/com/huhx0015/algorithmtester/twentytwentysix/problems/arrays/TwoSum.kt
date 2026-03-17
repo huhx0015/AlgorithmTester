@@ -75,14 +75,14 @@ object TwoSum {
         val numsValueMap: HashMap<Int, Int> = hashMapOf()
 
         for (i in 0 until nums.size) {
-            // Complement Logic: For each number nums[i], we look for target - nums[i] in the map.
-            val complementValue = target - nums[i] // Subtracts the target value from nums[i].
-            println("Two Sum: i is $i with target $target - nums[i] ${nums[i]} = complement value of $complementValue")
+            // Difference Value Logic: For each number nums[i], we look for target - nums[i] in the map.
+            val differenceValue = target - nums[i] // Subtracts the target value from nums[i].
+            println("Two Sum: i is $i with target $target - nums[i] ${nums[i]} = complement value of $differenceValue")
 
-            if (numsValueMap.containsKey(complementValue)) {
-                // We return [map[complement], i] to ensure smaller index comes first.
-                val twoSumPair = intArrayOf(numsValueMap[complementValue]!!, i)
-                println("Two Sum: Found the two sum pair [$complementValue, $i] that sums up to target: $target")
+            if (numsValueMap.containsKey(differenceValue)) {
+                // We return [map[differenceValue], i] to ensure smaller index comes first.
+                val twoSumPair = intArrayOf(numsValueMap[differenceValue]!!, i)
+                println("Two Sum: Found the two sum pair [$differenceValue, $i] that sums up to target: $target")
                 return twoSumPair
             }
             numsValueMap[nums[i]] = i // Updates the numsValueMap as we traverse through it.
