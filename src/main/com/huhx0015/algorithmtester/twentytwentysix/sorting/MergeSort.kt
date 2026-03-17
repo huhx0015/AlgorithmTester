@@ -1,7 +1,5 @@
 package com.huhx0015.algorithmtester.twentytwentysix.sorting
 
-import com.huhx0015.algorithmtester.twentytwentysix.sorting.InsertionSort.Pair
-
 /**
  * NeetCode.io
  *
