@@ -30,8 +30,6 @@ package com.huhx0015.algorithmtester.twentytwentysix.problems.sorting
  * nums1.length == (m + n)
  * nums2.length == n
  * -1,000,000,000 <= nums1[i], nums2[i] <= 1,000,000,000
- *
- *
  */
 object MergeSortedArray {
 
