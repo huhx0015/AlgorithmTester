@@ -1,5 +1,7 @@
 package com.huhx0015.algorithmtester.twentytwentysix.problems.arrays
 
+import java.util.SortedMap
+
 /**
  * Leetcode
  *
@@ -40,12 +42,54 @@ object MaximumPopulation {
 
     @JvmStatic fun main(args: Array<String>) {
         val input1 = arrayOf(intArrayOf(1993, 1999), intArrayOf(2000, 2010))
+        val input2 = arrayOf(intArrayOf(1950, 1961), intArrayOf(1960, 1971), intArrayOf(1970, 1981))
+
         val result1 = maximumPopulation(input1)
         println("Maximum Population: Earliest year of max population for input1 was $result1\n")
 
-        val input2 = arrayOf(intArrayOf(1950, 1961), intArrayOf(1960, 1971), intArrayOf(1970, 1981))
         val result2 = maximumPopulation(input2)
         println("Maximum Population: Earliest year of max population for input2 was $result2\n")
+
+        val result1HashMap = maximumPopulationHashMap(input1)
+        println("Maximum Population (Hash Map): Earliest year of max population for input1 was $result1HashMap (expected: 1993)\n")
+
+        val result2HashMap = maximumPopulationHashMap(input2)
+        println("Maximum Population (Hash Map): Earliest year of max population for input2 was $result2HashMap (expected: 1960)\n")
+    }
+
+    // maximumPopulationHashMap: Solution using Hash Map that is sorted. Time Complexity: O(n log n) | Space Complexity: O(n)
+    fun maximumPopulationHashMap(logs: Array<IntArray>): Int {
+        println("Maximum Population (Hash Map): Starting maximum population census for number of logs ${logs.size}")
+
+        val populationHashMap: SortedMap<Int, Int> = sortedMapOf() // Stores the Year to Count in the SortedMap.
+        var maxPopulation = 0
+        var currentPopulation = 0
+        var earliestYear = 0
+
+        // Loops through logs to build the hashtable of year to counts. Birth = +1, Death = -1
+        for (log in logs) {
+            val birthYear = log[0]
+            val deathYear = log[1]
+
+            populationHashMap[birthYear] = (populationHashMap[birthYear] ?: 0) + 1
+            populationHashMap[deathYear] = (populationHashMap[deathYear] ?: 0) - 1
+        }
+
+        // Loops through the populationHashMap, since populationHashMap is sorted, can iterate in chronological order
+        // for prefix sum to work correctly.
+        for ((year, count) in populationHashMap) {
+            currentPopulation += count
+
+            if (currentPopulation > maxPopulation) {
+                println("Maximum Population (Hash Map): Current population $currentPopulation is greater than maximum population $maxPopulation, updating earliestYear with $year.")
+                maxPopulation = currentPopulation
+                earliestYear = year
+            } else {
+                println("Maximum Population (Hash Map): Current population $currentPopulation is less than maximum population $maxPopulation, skipping $year.")
+            }
+        }
+
+        return earliestYear
     }
 
     // maximumPopulation():
