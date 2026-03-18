@@ -14,6 +14,14 @@ class ValidPalindromeTest {
     }
 
     @Test
+    fun testValidPalindromeKotlin() {
+        assertEquals(true, ValidPalindrome.isPalindromeKotlin("Was it a car or a cat I saw?"))
+        assertEquals(false, ValidPalindrome.isPalindromeKotlin("tab a cat"))
+        assertEquals(true, ValidPalindrome.isPalindromeKotlin("A man a plan a canal Panama"))
+        assertEquals(false, ValidPalindrome.isPalindromeKotlin("race a car"))
+    }
+
+    @Test
     fun testValidPalindromeBruteForce() {
         assertEquals(true, ValidPalindrome.isPalindromeBruteForce("Was it a car or a cat I saw?"))
         assertEquals(false, ValidPalindrome.isPalindromeBruteForce("tab a cat"))

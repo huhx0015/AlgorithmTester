@@ -40,6 +40,8 @@ object ValidPalindrome {
 
         isPalindrome(s = input1)
         isPalindrome(s = input2)
+        isPalindromeKotlin(s = input1)
+        isPalindromeKotlin(s = input2)
         isPalindromeBruteForce(s = input1)
         isPalindromeBruteForce(s = input2)
     }
@@ -93,6 +95,37 @@ object ValidPalindrome {
         return true
     }
 
+    // isPalindromeKotlin(): Solution using Kotlin functions. Time Complexity: O(n) + O(n) = O(n) | Space Complexity: O(n)
+    fun isPalindromeKotlin(s: String): Boolean {
+        println("isPalindromeKotlin: Checking if '$s' is a palindrome...")
+
+        // Create a mutable StringBuilder to efficiently build the filtered string (Using StringBuilder avoids O(n^2)
+        // cost of repeated string concatenation)
+        val stringBuilder = StringBuilder()
+
+        // Loop through each character in the input string
+        for (character in s) {
+
+            // Check if the character is alphanumeric (letter or digit), this filters out spaces, punctuation, etc.
+            if (character.isLetterOrDigit()) {
+
+                // Convert the character to lowercase and append it to StringBuilder, this ensures case-insensitive
+                // comparison later.
+                stringBuilder.append(character.lowercaseChar())
+                println("isPalindromeKotlin: Character $character is alphanumeric, appending.")
+            } else {
+                println("isPalindromeKotlin: Character $character is not alphanumeric, skipping.")
+            }
+        }
+
+        val originalString = stringBuilder.toString()
+        val reversedString = originalString.reversed() // Reverse the string and compare it with the original filtered string.
+        val areStringsEquivalent = reversedString == originalString
+
+        println("isPalindromeKotlin: Original string '$originalString' and reversed string '$reversedString' are palindromes: $areStringsEquivalent\n")
+        return areStringsEquivalent
+    }
+
     // isPalindromeBruteForce(): Two for-loop solution. Time Complexity: O(n) + O(n) = O(n) | Space Complexity: O(n)
     fun isPalindromeBruteForce(s: String): Boolean {
         println("isPalindromeBruteForce: Checking if '$s' is a palindrome...")
@@ -117,10 +150,10 @@ object ValidPalindrome {
         for (i in s.length - 1 downTo 0) {
             val currentCharacter = s[i]
             if (currentCharacter.isLetterOrDigit()) {
-                println("isPalindromeBruteForce: Current character $currentCharacter at $i is alphanumeric, appending to reversedStringBuilder.")
+                println("isPalindromeBruteForce: FOR (RIGHT) Current character $currentCharacter at $i is alphanumeric, appending to reversedStringBuilder.")
                 reversedStringBuilder.append(currentCharacter.lowercaseChar())
             } else {
-                println("isPalindromeBruteForce: Current character $currentCharacter at $i is not alphanumeric, skipping.")
+                println("isPalindromeBruteForce: FOR (RIGHT) Current character $currentCharacter at $i is not alphanumeric, skipping.")
             }
         }
 
@@ -129,10 +162,10 @@ object ValidPalindrome {
         for (i in 0 until s.length) {
             val currentCharacter = s[i]
             if (currentCharacter.isLetterOrDigit()) {
-                println("isPalindromeBruteForce: Current character $currentCharacter at $i is alphanumeric, appending to originalStringBuilder.")
+                println("isPalindromeBruteForce: FOR (LEFT) Current character $currentCharacter at $i is alphanumeric, appending to originalStringBuilder.")
                 originalStringBuilder.append(currentCharacter.lowercaseChar())
             } else {
-                println("isPalindromeBruteForce: Current character $currentCharacter at $i is not alphanumeric, skipping.")
+                println("isPalindromeBruteForce: FOR (LEFT) Current character $currentCharacter at $i is not alphanumeric, skipping.")
             }
         }
 
