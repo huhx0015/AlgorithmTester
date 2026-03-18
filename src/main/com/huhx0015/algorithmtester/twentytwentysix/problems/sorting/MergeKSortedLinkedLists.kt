@@ -57,6 +57,15 @@ object MergeKSortedLinkedLists {
         val inputArray2: Array<ListNode?> = emptyArray()
         val inputArray3: Array<ListNode?> = arrayOf(null)
 
+        val result1 = mergeKLists(inputArray1)
+        println("mergeKLists: Result: ${result1.toString()}\n")
+
+        val result2 = mergeKLists(inputArray2)
+        println("mergeKLists: Result: ${result2.toString()}\n")
+
+        val result3 = mergeKLists(inputArray3)
+        println("mergeKLists: Result: ${result3.toString()}\n")
+
         val resultBruteForce1 = mergeKListsBruteForce(inputArray1)
         println("mergeKListsBruteForce: Result: ${resultBruteForce1.toString()}\n")
 
@@ -72,7 +81,70 @@ object MergeKSortedLinkedLists {
         var next: ListNode? = null
     }
 
-    // mergeKLists(): Brute force strategy. Time Complexity:
+    // mergeKLists(): Merges k sorted linked lists into one sorted linked list
+    // Time Complexity: O(N log k) | N = total number of nodes | k = number of lists
+    // Space Complexity: O(1)
+    // Pattern: Divide and Conquer
+    fun mergeKLists(lists: Array<ListNode?>): ListNode? {
+        // Edge case: if input array is empty, return null.
+        if (lists.isEmpty()) {
+            println("mergeKLists: lists was empty, returning null.")
+            return null
+        }
+        var currentLists = lists.toList() // Convert the array into a mutable working list.
+
+        // Keep merging until only one list remains.
+        while (currentLists.size > 1) {
+            val mergedLists = mutableListOf<ListNode?>() // This will store the merged results of this round.
+
+            // Iterate through lists in pairs (step 2: Increments i by 2).
+            for (i in currentLists.indices step 2) {
+                val l1 = currentLists[i] // First list in the pair.
+
+                // Second list in the pair (if it exists, otherwise null).
+                val l2 = if (i + 1 < currentLists.size) currentLists[i + 1] else null
+
+                println("mergeKLists: FOR: l1 is ${l1.toString()} and l2 is ${l2.toString()}")
+
+                mergedLists.add(mergeList(l1, l2)) // Merge the two lists and add result to mergedLists.
+            }
+            currentLists = mergedLists // Update currentLists with the merged results for next iteration.
+        }
+
+        return currentLists[0] // At the end, only one fully merged list remains.
+    }
+
+    // mergeList(): Merges two sorted linked lists into one sorted list.
+    private fun mergeList(l1: ListNode?, l2: ListNode?): ListNode? {
+        val dummy = ListNode(0) // Dummy node simplifies edge cases (like empty result list)
+        var tail = dummy // Tail pointer to build the merged list
+
+        // Pointers to traverse both lists
+        var list1 = l1
+        var list2 = l2
+
+        // Traverse both lists while neither is exhausted
+        while (list1 != null && list2 != null) {
+
+            // Compare current values of both lists
+            if (list1.value < list2.value) {
+                tail.next = list1 // Attach the smaller node to the merged list
+                list1 = list1.next // Move list1 pointer forward
+            } else {
+                tail.next = list2 // Attach list2 node if it is smaller or equal
+                list2 = list2.next // Move list2 pointer forward
+            }
+
+            tail = tail.next!! // Move tail forward to the newly added node
+        }
+
+        tail.next = list1 ?: list2 // Attach the remaining nodes (only one of these will be non-null)
+
+        return dummy.next // Return the merged list (skip dummy node)
+    }
+
+    // mergeKLists(): Brute force strategy. Time Complexity: O(n) + O(n log n) + O(n) = O(n log n)
+    // Space Complexity: O(n)
     // Inner nodes are all pre-sorted.
     fun mergeKListsBruteForce(lists: Array<ListNode?>): ListNode? {
         if (lists.isEmpty()) {

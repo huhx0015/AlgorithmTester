@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class MergeKSortedLinkedListsTest {
-    
+
     val listNode1 = ListNode(1)
     val listNode2 = ListNode(2)
     val listNode3 = ListNode(4)
@@ -24,6 +24,26 @@ class MergeKSortedLinkedListsTest {
         listNode4.next = listNode5
         listNode5.next = listNode6
         listNode7.next = listNode8
+    }
+
+    @Test
+    fun testMergeKLists() {
+        val inputArray1: Array<ListNode?> = arrayOf(
+            listNode1,
+            listNode4,
+            listNode7
+        )
+        val inputArray2: Array<ListNode?> = emptyArray()
+        val inputArray3: Array<ListNode?> = arrayOf(null)
+
+        val result1 = mergeKListsBruteForce(inputArray1)
+        assertEquals(ListNode(1), result1)
+
+        val result2 = mergeKListsBruteForce(inputArray2)
+        assertEquals(null, result2)
+
+        val result3 = mergeKListsBruteForce(inputArray3)
+        assertEquals(null, result3)
     }
 
     @Test
