@@ -1,7 +1,5 @@
 package com.huhx0015.algorithmtester.twentytwentysix.problems.strings
 
-import com.huhx0015.algorithmtester.twentytwentysix.problems.strings.ValidAnagram.isAnagram
-
 /**
  * NeetCode.io
  *
@@ -40,30 +38,64 @@ object ValidPalindrome {
         val input1 = "Was it a car or a cat I saw?"
         val input2 = "tab a cat"
 
-        val resultBruteForce1 = isPalindromeBruteForce(s = input1)
-        val resultBruteForce2 = isPalindromeBruteForce(s = input2)
+        isPalindrome(s = input1)
+        isPalindrome(s = input2)
+        isPalindromeBruteForce(s = input1)
+        isPalindromeBruteForce(s = input2)
     }
 
-    // isPalindrome():
-//    fun isPalindrome(s: String): Boolean {
-//        println("isPalindrome: Checking if $s is a palindrome...")
-//
-//        // Empty character string is not a palindrome.
-//        if (s.isEmpty()) {
-//            println("isPalindrome: $s is empty, not a palindrome.")
-//            return false
-//        }
-//
-//        // One character string is a palindrome.
-//        if (s.length == 1) {
-//            println("isPalindrome: $s is single character, it is a palindrome.")
-//            return true
-//        }
-//
-//    }
+    // isPalindrome(): Two-Pointer solution, no string construction. Time Complexity: O(n) | Space Complexity: O(1)
+    fun isPalindrome(s: String): Boolean {
+        println("isPalindrome: Checking if '$s' is a palindrome...")
 
+        // Empty character string is not a palindrome.
+        if (s.isEmpty()) {
+            println("isPalindrome: $s is empty, not a palindrome.")
+            return false
+        }
+
+        // One character string is a palindrome.
+        if (s.length == 1) {
+            println("isPalindrome: $s is single character, it is a palindrome.")
+            return true
+        }
+
+        // Use two pointers, one at the start and one at the end of the `s` string to check characters at each end.
+        var startingPointer = 0
+        var endingPointer = s.length - 1
+
+        // Loops until the startingPointer is less than the endingPointer.
+        while (startingPointer < endingPointer) {
+            // Skip non-alphanumeric characters from the left.
+            while (startingPointer < endingPointer && !s[startingPointer].isLetterOrDigit()) {
+                println("isPalindrome: WHILE 1: Skipping non-alphanumeric '${s[startingPointer]}' at $startingPointer, moving left.")
+                startingPointer++
+            }
+            // Skip non-alphanumeric characters from the right.
+            while (startingPointer < endingPointer && !s[endingPointer].isLetterOrDigit()) {
+                println("isPalindrome: WHILE 2: Skipping non-alphanumeric '${s[endingPointer]}' at $endingPointer, moving right.")
+                endingPointer--
+            }
+            val leftCharacter = s[startingPointer].lowercaseChar()
+            val rightCharacter = s[endingPointer].lowercaseChar()
+            println("isPalindrome: WHILE: LeftCharacter: $leftCharacter | RightCharacter: $rightCharacter")
+
+            // Compare characters (case-insensitive). If they don't match, not a palindrome.
+            if (startingPointer < endingPointer && leftCharacter != rightCharacter) {
+                println("isPalindrome: Mismatch at indices $startingPointer ('${leftCharacter}') and $endingPointer ('${rightCharacter}'), not a palindrome.\n")
+                return false
+            }
+            startingPointer++
+            endingPointer--
+        }
+
+        println("isPalindrome: '$s' is a palindrome.\n")
+        return true
+    }
+
+    // isPalindromeBruteForce(): Two for-loop solution. Time Complexity: O(n) + O(n) = O(n) | Space Complexity: O(n)
     fun isPalindromeBruteForce(s: String): Boolean {
-        println("isPalindromeBruteForce: Checking if $s is a palindrome...")
+        println("isPalindromeBruteForce: Checking if '$s' is a palindrome...")
 
         // Empty character string is not a palindrome.
         if (s.isEmpty()) {
@@ -77,28 +109,30 @@ object ValidPalindrome {
             return true
         }
 
-        val reversedStringBuilder: StringBuilder = StringBuilder()
+        // Use StringBuilder pattern to construct the strings.
         val originalStringBuilder: StringBuilder = StringBuilder()
+        val reversedStringBuilder: StringBuilder = StringBuilder()
 
         // Loop through the string `s` in reverse, constructing the string and omitting non-alphanumeric characters.
         for (i in s.length - 1 downTo 0) {
             val currentCharacter = s[i]
             if (currentCharacter.isLetterOrDigit()) {
-                println("isPalindromeBruteForce: Current character $currentCharacter is alphanumeric, appending to reversedStringBuilder.")
+                println("isPalindromeBruteForce: Current character $currentCharacter at $i is alphanumeric, appending to reversedStringBuilder.")
                 reversedStringBuilder.append(currentCharacter.lowercaseChar())
             } else {
-                println("isPalindromeBruteForce: Current character $currentCharacter is not alphanumeric, skipping.")
+                println("isPalindromeBruteForce: Current character $currentCharacter at $i is not alphanumeric, skipping.")
             }
         }
 
-        // Loop through the string `s` normally to get the filtered original string
+        // Loop through the string `s` normally to get the filtered original string without spaces or non-alphanumeric
+        // characters.
         for (i in 0 until s.length) {
             val currentCharacter = s[i]
             if (currentCharacter.isLetterOrDigit()) {
-                println("isPalindromeBruteForce: Current character $currentCharacter is alphanumeric, appending to originalStringBuilder.")
+                println("isPalindromeBruteForce: Current character $currentCharacter at $i is alphanumeric, appending to originalStringBuilder.")
                 originalStringBuilder.append(currentCharacter.lowercaseChar())
             } else {
-                println("isPalindromeBruteForce: Current character $currentCharacter is not alphanumeric, skipping.")
+                println("isPalindromeBruteForce: Current character $currentCharacter at $i is not alphanumeric, skipping.")
             }
         }
 
@@ -106,7 +140,7 @@ object ValidPalindrome {
         val originalString = originalStringBuilder.toString()
         val areStringsEquivalent = reversedString == originalString
 
-        println("isPalindromeBruteForce: Original string $originalString and reversed string $reversedString are palindromes: $areStringsEquivalent\n")
+        println("isPalindromeBruteForce: Original string '$originalString' and reversed string '$reversedString' are palindromes: $areStringsEquivalent\n")
         return areStringsEquivalent
     }
 }
