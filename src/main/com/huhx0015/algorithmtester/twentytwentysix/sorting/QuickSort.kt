@@ -54,27 +54,41 @@ object QuickSort {
         val inputPairs2: MutableList<Pair> = mutableListOf(Pair(5, "apple"), Pair(9, "apple"), Pair(9, "cherry"), Pair(9, "banana"))
 
         val resultArray1 = quickSort(arr = inputArray1, s = 0, e = 4)
-        println("QuickSort (Int Array): Original array was ${inputArray1.toSet()}, sorted array is ${resultArray1.toSet()}\n")
+        println("QuickSort (IntArray): Original array was ${inputArray1.toSet()}, sorted array is ${resultArray1.toSet()}\n")
 
         val resultArray2 = quickSort(arr = inputArray2, s = 0, e = 4)
-        println("QuickSort (Int Array): Original array was ${inputArray2.toSet()}, sorted array is ${resultArray2.toSet()}\n")
+        println("QuickSort (IntArray): Original array was ${inputArray2.toSet()}, sorted array is ${resultArray2.toSet()}\n")
+
+        val resultPairs1 = quickSort(pairs = inputPairs1)
+        println("QuickSort (Pairs): Original pair was ${inputPairs1.toSet()}, sorted array is ${resultPairs1.toSet()}\n")
+
+        val resultPairs2 = quickSort(pairs = inputPairs2)
+        println("QuickSort (Pairs): Original pair was ${inputPairs2.toSet()}, sorted array is ${resultPairs2.toSet()}\n")
     }
 
     // quickSort(): Pairs implementation.
+    // Time Complexity: Best Case: O(n) * O(log n) = O(n log n) | Worst Case: O(n^2)
+    // Space Complexity: O(1)
     fun quickSort(pairs: MutableList<Pair>): MutableList<Pair> {
         if (pairs.isEmpty()) return pairs
 
+        // Call the helper function sort() to perform quick sort on pairs.
         sort(pairs = pairs, startingIndex = 0, endingIndex = pairs.size - 1)
         return pairs
     }
 
+    // sort(): Helper function to quickSort to perform the quick sort algorithm on pairs.
     fun sort(pairs: MutableList<Pair>, startingIndex: Int, endingIndex: Int) {
+        println("quickSort (Pairs): sort() called with startingIndex $startingIndex, endingIndex $endingIndex")
+
         if (endingIndex - startingIndex + 1 <= 1) {
+            println("quickSort (Pairs): Finished sorting array with $endingIndex - $startingIndex + 1 <= 1 condition met.")
             return
         }
 
         val pivot = pairs[endingIndex]
         var left = startingIndex
+        println("quickSort (Pairs): Pivot: $pivot | left: $left")
 
         for (i in startingIndex until endingIndex) {
             if (pairs[i].key < pivot.key) {
@@ -106,13 +120,17 @@ object QuickSort {
             return arr
         }
 
-        val pivot = arr[e]
+        val pivot = arr[e] // Pivot set to the end index value of the array.
         var left = s // Pointer for left side.
-        println("quickSort (IntArray): Pivot: ${arr[e]} | left: $s")
+        println("quickSort (IntArray): Pivot: $pivot | left: $left")
 
         // Partition: Elements smaller than pivot on left side.
         for (i in s until e) {
+
+            // Compare Each Element to Pivot: If current element is smaller than pivot, it belongs on the left side.
             if (arr[i] < pivot) {
+
+                // Swap: current element arr[i] with the element at left
                 val temp = arr[left]
                 arr[left] = arr[i]
                 arr[i] = temp
