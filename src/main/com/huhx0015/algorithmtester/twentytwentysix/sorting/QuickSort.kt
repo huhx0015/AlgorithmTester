@@ -45,41 +45,79 @@ package com.huhx0015.algorithmtester.twentytwentysix.sorting
  */
 object QuickSort {
 
+    data class Pair(var key: Int, var value: String)
+
     @JvmStatic fun main(args: Array<String>) {
         val inputArray1 = intArrayOf(6, 2, 4, 1, 3)
         val inputArray2 = intArrayOf(7, 3, 7, 4, 5)
+        val inputPairs1: MutableList<Pair> = mutableListOf(Pair(1, "cat"), Pair(2, "dog"), Pair(3, "bird"))
+        val inputPairs2: MutableList<Pair> = mutableListOf(Pair(5, "apple"), Pair(9, "apple"), Pair(9, "cherry"), Pair(9, "banana"))
 
         val resultArray1 = quickSort(arr = inputArray1, s = 0, e = 4)
-        println("QuickSort (Int Array): Original array was ${inputArray1.toSet()}, sorted array is ${resultArray1.toSet()}")
+        println("QuickSort (Int Array): Original array was ${inputArray1.toSet()}, sorted array is ${resultArray1.toSet()}\n")
 
         val resultArray2 = quickSort(arr = inputArray2, s = 0, e = 4)
-        println("QuickSort (Int Array): Original array was ${inputArray2.toSet()}, sorted array is ${resultArray2.toSet()}")
+        println("QuickSort (Int Array): Original array was ${inputArray2.toSet()}, sorted array is ${resultArray2.toSet()}\n")
     }
 
-    data class Pair(var key: Int, var value: String)
+    // quickSort(): Pairs implementation.
+    fun quickSort(pairs: MutableList<Pair>): MutableList<Pair> {
+        if (pairs.isEmpty()) return pairs
 
-//    fun quickSort(pairs: MutableList<Pair>): MutableList<Pair> {
-//
-//    }
+        sort(pairs = pairs, startingIndex = 0, endingIndex = pairs.size - 1)
+        return pairs
+    }
 
-    // quickSort():
+    fun sort(pairs: MutableList<Pair>, startingIndex: Int, endingIndex: Int) {
+        if (endingIndex - startingIndex + 1 <= 1) {
+            return
+        }
+
+        val pivot = pairs[endingIndex]
+        var left = startingIndex
+
+        for (i in startingIndex until endingIndex) {
+            if (pairs[i].key < pivot.key) {
+                val temp = pairs[left]
+                pairs[left] = pairs[i]
+                pairs[i] = temp
+                left++
+            }
+        }
+
+        pairs[endingIndex] = pairs[left]
+        pairs[left] = pivot
+
+        sort(pairs = pairs, startingIndex = startingIndex, endingIndex = left - 1)
+        sort(pairs = pairs, startingIndex = left + 1, endingIndex = endingIndex)
+
+        return
+    }
+
+    // quickSort(): IntArray implementation.
     // arr = array to be sorted
     // s = start index (beginning of the subarray you’re sorting)
     // e = end index (ending of the subarray you’re sorting)
     fun quickSort(arr: IntArray, s: Int, e: Int): IntArray {
+        println("quickSort (IntArray): Sorting array with start index $s and end index $e.")
+
         if (e - s + 1 <= 1) {
+            println("quickSort (IntArray): Finished sorting array with $e - $s + 1 <= 1 condition met.")
             return arr
         }
 
         val pivot = arr[e]
         var left = s // Pointer for left side.
+        println("quickSort (IntArray): Pivot: ${arr[e]} | left: $s")
 
         // Partition: Elements smaller than pivot on left side.
         for (i in s until e) {
             if (arr[i] < pivot) {
-                val tmp = arr[left]
+                val temp = arr[left]
                 arr[left] = arr[i]
-                arr[i] = tmp
+                arr[i] = temp
+
+                println("quickSort (IntArray): FOR: temp: $temp | arr[left]: ${arr[left]} | arr[i]: ${arr[i]}")
                 left++
             }
         }
@@ -87,6 +125,7 @@ object QuickSort {
         // Move pivot in-between left & right sides.
         arr[e] = arr[left]
         arr[left] = pivot
+        println("quickSort (IntArray): Moving pivot in-between left & right sides: arr[e]: ${arr[e]} | arr[left]: ${arr[left]}")
 
         quickSort(arr, s, left - 1) // Recursive call to quick sort left side.
         quickSort(arr, left + 1, e) // Recursive call to quick sort right side.
