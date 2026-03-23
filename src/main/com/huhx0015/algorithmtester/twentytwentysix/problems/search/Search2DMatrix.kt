@@ -46,20 +46,20 @@ object Search2DMatrix {
         println("Search 2D Matrix result for $target2 was $result2\n")
     }
 
+    // searchMatrix(): Time Complexity: O (m * log n) | Space Complexity: O(1)
     fun searchMatrix(matrix: Array<IntArray>, target: Int): Boolean {
-        var targetFound = false // Stores the boolean result, with default to false.
-
         matrix.forEach { array ->
             // Performs the binarySearch on each array in the matrix.
             val searchResult = binarySearch(array = array, target = target)
 
-            // If searchResult is true, the `targetFound` boolean is updated to true.
+            // If searchResult is true, the boolean value is returned early.
             if (searchResult) {
-                targetFound = true
+                println("Search 2D Matrix: searchMatrix has finished, target was found.")
+                return true
             }
         }
-        println("Search 2D Matrix: searchMatrix has finished, target result: $targetFound")
-        return targetFound
+        println("Search 2D Matrix: searchMatrix has finished, target was not found.")
+        return false
     }
 
     // binarySearch(): Helper function that uses binary search to search for the target in the IntArray.
