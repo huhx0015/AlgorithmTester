@@ -1,13 +1,13 @@
 package com.huhx0015.algorithmtester.twentytwentysix.search
 
-import com.huhx0015.algorithmtester.twentytwentysix.search.BinaryRange.binarySearch
+import com.huhx0015.algorithmtester.twentytwentysix.search.SearchRange.binarySearch
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class BinaryRangeTest {
+class SearchRangeTest {
 
     @Test
-    fun testBinaryRange() {
+    fun testSearchRange() {
         val low = 1
         val high = 100
 

@@ -1,6 +1,6 @@
 package com.huhx0015.algorithmtester.twentytwentysix.search
 
-object BinaryRange {
+object SearchRange {
 
     @JvmStatic fun main(args: Array<String>) {
         val low = 1
