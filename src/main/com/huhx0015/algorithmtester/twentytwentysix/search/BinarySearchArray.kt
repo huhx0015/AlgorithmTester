@@ -27,7 +27,7 @@ package com.huhx0015.algorithmtester.twentytwentysix.search
  * All the integers in nums are unique.
  *
  */
-object BinarySearch {
+object BinarySearchArray {
 
     @JvmStatic fun main(args: Array<String>) {
         val inputIntArray1 = intArrayOf(1, 2, 3, 4, 23, 50, 78, 3000, 5000)

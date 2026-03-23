@@ -1,13 +1,13 @@
 package com.huhx0015.algorithmtester.twentytwentysix.search
 
-import com.huhx0015.algorithmtester.twentytwentysix.search.BinarySearch.binarySearch
+import com.huhx0015.algorithmtester.twentytwentysix.search.BinarySearchArray.binarySearch
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class BinarySearchTest {
+class BinarySearchArrayTest {
 
     @Test
-    fun testBinarySearch() {
+    fun testBinarySearchArray() {
         val inputIntArray = intArrayOf(1, 2, 3, 4, 23, 50, 78, 3000, 5000)
         val target1 = 23
         val target2 = 3
