@@ -80,17 +80,15 @@ object KokoEatingBananas {
 
             // Visit every pile to sum per-pile time at this k.
             for (p in piles) {
-                val pileHours = (p.toLong() + k - 1) / k // Hours for this pile: ⌈p/k⌉ via safe integer math (k > 0).
-                hours += pileHours // Add this pile’s contribution to the total hour count.
-                println("Koko Eating Bananas: pile p=$p at k=$k → +$pileHours h (running total hours=$hours)")
+                hours += Math.ceil(p.toDouble() / k).toLong() // Add this pile’s contribution to the total hour count.
+                println("Koko Eating Bananas: pile p=$p at k=$k → +h (running total hours=$hours)")
             }
 
             println("Koko Eating Bananas: total hours=$hours for k=$k (budget h=$h)")
 
             // Branch: if we finish in time at k, try a slower (smaller) k.
             if (hours <= h) {
-
-                result = minOf(result, k) // Tighten the best answer to the smaller feasible k seen so far.
+                result = k // Tighten the best answer to the smaller feasible k seen so far.
                 println("Koko Eating Bananas: feasible — result=$result, shrink right to ${k - 1}")
                 right = k - 1
             } else {
