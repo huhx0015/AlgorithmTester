@@ -26,14 +26,20 @@ object BinarySearchTree {
 
     // search(): Time Complexity: BALANCED: O(log n) | UNBALANCED: O(h) where h is the height of the tree.
     fun search(root: TreeNode?, target: Int): Boolean {
+        // If we reach a null node, we return false because the target does not exist in the current tree.
         if (root == null) {
             println("Binary Search Tree: Target $target was not found.")
             return false
         }
 
         return when {
+            // If the target is greater than the current node, we search the right subtree.
             target > root.`val` -> search(root.right, target)
+
+            // If the target is less than the current node, we search the left subtree.
             target < root.`val` -> search(root.left, target)
+
+            // If the target is equal to the current node, we return true.
             else -> {
                 println("Binary Search Tree: Target $target was found at ${root.`val`}")
                 true
