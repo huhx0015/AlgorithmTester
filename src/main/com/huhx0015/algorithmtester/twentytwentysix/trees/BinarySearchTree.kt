@@ -1,0 +1,43 @@
+package com.huhx0015.algorithmtester.twentytwentysix.trees
+
+object BinarySearchTree {
+
+    @JvmStatic fun main(args: Array<String>) {
+        val treeNode1 = TreeNode(3)
+        val treeNode2 = TreeNode(1)
+        val treeNode3 = TreeNode(5)
+        val treeNode4 = TreeNode(7)
+        val treeNode5 = TreeNode(10)
+
+        treeNode1.left = treeNode2
+        treeNode1.right = treeNode3
+        treeNode3.left = treeNode4
+        treeNode3.right = treeNode5
+
+        val result1 = search(treeNode1, 1)
+        println("Binary Search Tree: Searched tree, result was: $result1")
+
+        val result2 = search(treeNode1, 2)
+        println("Binary Search Tree: Searched tree, result was: $result2")
+
+        val result3 = search(treeNode1, 10)
+        println("Binary Search Tree: Searched tree, result was: $result3")
+    }
+
+    // search(): Time Complexity: BALANCED: O(log n) | UNBALANCED: O(h) where h is the height of the tree.
+    fun search(root: TreeNode?, target: Int): Boolean {
+        if (root == null) {
+            println("Binary Search Tree: Target $target was not found.")
+            return false
+        }
+
+        return when {
+            target > root.`val` -> search(root.right, target)
+            target < root.`val` -> search(root.left, target)
+            else -> {
+                println("Binary Search Tree: Target $target was found at ${root.`val`}")
+                true
+            }
+        }
+    }
+}
