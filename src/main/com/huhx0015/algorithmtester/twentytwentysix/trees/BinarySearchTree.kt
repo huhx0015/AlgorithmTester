@@ -15,13 +15,13 @@ object BinarySearchTree {
         treeNode3.right = treeNode5
 
         val result1 = search(treeNode1, 1)
-        println("Binary Search Tree: Searched tree, result was: $result1")
+        println("Binary Search Tree: Searched tree, result was: $result1\n")
 
         val result2 = search(treeNode1, 2)
-        println("Binary Search Tree: Searched tree, result was: $result2")
+        println("Binary Search Tree: Searched tree, result was: $result2\n")
 
         val result3 = search(treeNode1, 10)
-        println("Binary Search Tree: Searched tree, result was: $result3")
+        println("Binary Search Tree: Searched tree, result was: $result3\n")
     }
 
     // search(): Time Complexity: BALANCED: O(log n) | UNBALANCED: O(h) where h is the height of the tree.
@@ -31,6 +31,8 @@ object BinarySearchTree {
             println("Binary Search Tree: Target $target was not found.")
             return false
         }
+
+        println("Binary Search Tree: Visited ${root.`val`}.")
 
         return when {
             // If the target is greater than the current node, we search the right subtree.
