@@ -32,18 +32,18 @@ object BinarySearchTree {
             return false
         }
 
-        println("Binary Search Tree: Visited ${root.`val`}.")
+        println("Binary Search Tree: Visited ${root.value}.")
 
         return when {
             // If the target is greater than the current node, we search the right subtree.
-            target > root.`val` -> search(root.right, target)
+            target > root.value -> search(root.right, target)
 
             // If the target is less than the current node, we search the left subtree.
-            target < root.`val` -> search(root.left, target)
+            target < root.value -> search(root.left, target)
 
             // If the target is equal to the current node, we return true.
             else -> {
-                println("Binary Search Tree: Target $target was found at ${root.`val`}")
+                println("Binary Search Tree: Target $target was found at ${root.value}")
                 true
             }
         }
