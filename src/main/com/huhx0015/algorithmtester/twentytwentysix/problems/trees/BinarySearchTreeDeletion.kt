@@ -1,33 +1,34 @@
 package com.huhx0015.algorithmtester.twentytwentysix.problems.trees
 
-import com.huhx0015.algorithmtester.twentytwentysix.problems.trees.BinarySearchTreeInsertion.insert
 import com.huhx0015.algorithmtester.twentytwentysix.trees.BinarySearchTree
 import com.huhx0015.algorithmtester.twentytwentysix.trees.TreeNode
 
 /**
- * Problem: Insert into a Binary Search Tree
+ * Problem: Delete Node in a BST
  * Difficulty: Medium
  *
- * You are given the root node of a binary search tree (BST) and a value val to insert into the tree. Return the root node of the BST after the insertion. It is guaranteed that the new value does not exist in the original BST.
+ * You are given a root node reference of a BST and a key, delete the node with the given key in the BST, if present.
+ * Return the root node reference (possibly updated) of the BST.
  *
- * Note: There may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.
+ * Basically, the deletion can be divided into two stages:
+ *
+ * Search for a node to remove.
+ * If the node is found, delete the node.
+ * Note: There can be multiple results after deleting the node, return any one of them.
  *
  * Example 1:
- * Input: root = [5,3,9,1,4], val = 6
+ * Input: root = [5,3,9,1,4], key = 3
+ * Output: [5,4,9,1]
+ * Explanation: Another valid answer is:
  *
- * Output: [5,3,9,1,4,6]
  * Example 2:
- *
- * Input: root = [5,3,6,null,4,null,10,null,null,7], val = 9
- *
- * Output: [5,3,6,null,4,null,10,null,null,7,null,null,9]
+ * Input: root = [5,3,6,null,4,null,10,null,null,7], key = 3
+ * Output: [5,4,6,null,null,null,10,7]
  * Constraints:
  *
  * 0 <= The number of nodes in the tree <= 10,000.
- * -100,000,000 <= val, Node.val <= 100,000,000
+ * -100,000 <= key, Node.val <= 100,000
  * All the values Node.val are unique.
- * It's guaranteed that val does not exist in the original BST.
- *
  */
 object BinarySearchTreeDeletion {
 
@@ -58,6 +59,58 @@ object BinarySearchTreeDeletion {
         val result3 = remove(root = treeNode1, value = removeValue3)
         val search3 = BinarySearchTree.search(root = result3, target = removeValue3)
         println("Binary Search Tree Result: Removed $removeValue3: ${search3 == false}\n")
+
+        val result4 = deleteNode(root = treeNode1, key = removeValue1)
+        val search4 = BinarySearchTree.search(root = result4, target = removeValue1)
+        println("Binary Search Tree Result: Removed $removeValue1: ${search4 == false}\n")
+
+        val result5 = deleteNode(root = treeNode1, key = removeValue1)
+        val search5 = BinarySearchTree.search(root = result5, target = removeValue1)
+        println("Binary Search Tree Result: Removed $removeValue1: ${search5 == false}\n")
+
+        val result6 = deleteNode(root = treeNode1, key = removeValue1)
+        val search6 = BinarySearchTree.search(root = result6, target = removeValue1)
+        println("Binary Search Tree Result: Removed $removeValue1: ${search6 == false}\n")
+    }
+
+    // deleteNode(): Time Complexity: Balanced: O(log n) | Unbalanced: O(n)
+    fun deleteNode(root: TreeNode?, key: Int): TreeNode? {
+
+        // If root is null, or the key wasn't found in the root TreeNode, null is returned.
+        if (root == null) {
+            return null
+        }
+
+        when {
+            // If key is greater than the root.value, we assign root.right and recursively call deleteNode on the right
+            // side of the root.
+            key > root.value -> {
+                root.right = deleteNode(root.right, key)
+            }
+            // If key is less than the root.value, we assign root.left and recursively call deleteNode on the left side
+            // of the root.
+            key < root.value -> {
+                root.left = deleteNode(root.left, key)
+            }
+            // Otherwise, the key is equal to the root.value. If the left side of the root is null, we return the right
+            // side of the root.
+            root.left == null -> {
+                return root.right
+            }
+            // Otherwise, the key is equal to the root.value. If the right side of the root is null, we return the left
+            // side of the root.
+            root.right == null -> {
+                return root.left
+            }
+            // Otherwise, we perform the removal process at the current node.
+            else -> {
+                // Need to get the minimum value of the node of the root.
+                val minimumValueNode = minValueNode(root.right)
+                root.value = minimumValueNode?.value!!
+                root.right = deleteNode(root.right, minimumValueNode.value)
+            }
+        }
+        return root
     }
 
     // remove(): Remove a node and return the root of the BST.
@@ -120,5 +173,4 @@ object BinarySearchTreeDeletion {
         println("Binary Search Tree Removal: minValueNode(): Found the node with the lowest value with value: ${curr?.value}")
         return curr
     }
-
 }
