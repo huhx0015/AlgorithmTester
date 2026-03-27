@@ -50,7 +50,7 @@ object BalancedBinaryTree {
     }
 
     // isBalanced(): Determines if the root TreeNode is balanced.
-    // Time Complexity: O(n) | Space Complexity: O(h)
+    // Time Complexity: O(n^2) | Space Complexity: O(h)
     fun isBalanced(root: TreeNode?): Boolean {
         // If the root is empty, we return true.
         if (root == null) {
@@ -66,8 +66,8 @@ object BalancedBinaryTree {
 
         val isBalanced = abs(leftHeightCount - rightHeightCount) <= 1
 
-        println("Balanced Binary Tree: Finished isBalanced, result was: $isBalanced")
-        return isBalanced
+        // Need to recursively call isBalanced to ensure that the left and right sides of the root are also balanced.
+        return isBalanced && isBalanced(root.left) && isBalanced(root.right)
     }
 
     // getHeight(): Returns the height of the node, recursively traverses the left and right sides to determine height.
