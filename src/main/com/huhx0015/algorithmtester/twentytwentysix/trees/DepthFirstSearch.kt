@@ -32,6 +32,7 @@ object DepthFirstSearch {
     }
 
     // inorder(): In order traversal: LEFT -> ROOT -> RIGHT
+    // Time Complexity: O(n) | Space Complexity: O(h): h is the height of the tree
     fun inorder(root: TreeNode?) {
         if (root == null) {
             return
@@ -42,6 +43,7 @@ object DepthFirstSearch {
     }
 
     // preorder(): Pre order traversal: ROOT -> LEFT -> RIGHT
+    // Time Complexity: O(n) | Space Complexity: O(h): h is the height of the tree
     fun preorder(root: TreeNode?) {
         if (root == null) {
             return
@@ -52,6 +54,7 @@ object DepthFirstSearch {
     }
 
     // postorder(): LEFT -> RIGHT -> ROOT
+    // Time Complexity: O(n) | Space Complexity: O(h): h is the height of the tree
     fun postorder(root: TreeNode?) {
         if (root == null) {
             return
