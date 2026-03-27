@@ -45,43 +45,43 @@ object BalancedBinaryTree {
         treeNode3.left = treeNode4
         treeNode3.right = treeNode5
 
-        val result = isBalanced(root = treeNode1)
-        println("Balanced Binary Tree: Is tree balanced: $result\n")
+        val result = isBalancedBruteForce(root = treeNode1)
+        println("Balanced Binary Tree (Brute Force): Is tree balanced: $result\n")
     }
 
-    // isBalanced(): Determines if the root TreeNode is balanced.
+    // isBalancedBruteForce(): Determines if the root TreeNode is balanced.
     // Time Complexity: O(n^2) | Space Complexity: O(h)
-    fun isBalanced(root: TreeNode?): Boolean {
+    fun isBalancedBruteForce(root: TreeNode?): Boolean {
         // If the root is empty, we return true.
         if (root == null) {
-            println("Balanced Binary Tree: Tree was empty, returning true.")
+            println("Balanced Binary Tree (Brute Force): Tree was empty, returning true.")
             return true
         }
 
         val leftHeightCount = getHeight(root.left)
-        println("Balanced Binary Tree: Finished traversing left side, left side height was: $leftHeightCount")
+        println("Balanced Binary Tree (Brute Force): Finished traversing left side, left side height was: $leftHeightCount")
 
         val rightHeightCount = getHeight(root.right)
-        println("Balanced Binary Tree: Finished traversing right side, right side height was: $leftHeightCount")
+        println("Balanced Binary Tree (Brute Force): Finished traversing right side, right side height was: $leftHeightCount")
 
         val isBalanced = abs(leftHeightCount - rightHeightCount) <= 1
 
         // Need to recursively call isBalanced to ensure that the left and right sides of the root are also balanced.
-        return isBalanced && isBalanced(root.left) && isBalanced(root.right)
+        return isBalanced && isBalancedBruteForce(root.left) && isBalancedBruteForce(root.right)
     }
 
     // getHeight(): Returns the height of the node, recursively traverses the left and right sides to determine height.
     fun getHeight(node: TreeNode?): Int {
         if (node == null) {
-            println("Balanced Binary Tree: getHeight: Node was null, returning 0")
+            println("Balanced Binary Tree (Brute Force): getHeight: Node was null, returning 0")
             return 0
         }
 
         val left = getHeight(node.left)
-        println("Balanced Binary Tree: getHeight: Recursively traversed left, left height was $left")
+        println("Balanced Binary Tree (Brute Force): getHeight: Recursively traversed left, left height was $left")
 
         val right = getHeight(node.right)
-        println("Balanced Binary Tree: getHeight: Recursively traversed left, right height was $right")
+        println("Balanced Binary Tree (Brute Force): getHeight: Recursively traversed left, right height was $right")
 
         return 1 + max(left, right)
     }

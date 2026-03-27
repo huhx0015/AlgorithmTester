@@ -1,6 +1,6 @@
 package com.huhx0015.algorithmtester.twentytwentysix.trees
 
-import com.huhx0015.algorithmtester.twentytwentysix.problems.trees.BalancedBinaryTree.isBalanced
+import com.huhx0015.algorithmtester.twentytwentysix.problems.trees.BalancedBinaryTree.isBalancedBruteForce
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -19,7 +19,7 @@ class BalancedBinaryTreeTest {
         treeNode3.left = treeNode4
         treeNode3.right = treeNode5
 
-        val result = isBalanced(root = treeNode1)
+        val result = isBalancedBruteForce(root = treeNode1)
         assertEquals(true, result)
     }
 }
