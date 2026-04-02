@@ -47,6 +47,9 @@ object LongestCommonPrefix {
         println("Longest Common Prefix: RESULT: $result3\n")
     }
 
+    // longestCommonPrefix():
+    // Time Complexity: O(n · m) | n = number of strings | m = length of the longest string (or initial prefix)
+    // Space Complexity: O(1)
     fun longestCommonPrefix(strs: Array<String>): String {
         // Initialize the prefix as the first string in the array.
         // We'll progressively shrink this until it matches all strings.
