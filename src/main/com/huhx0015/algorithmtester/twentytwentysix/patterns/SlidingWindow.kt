@@ -4,7 +4,7 @@ package com.huhx0015.algorithmtester.twentytwentysix.patterns
  * Pattern: Sliding Window
  * Data Structure: Arrays
  *
- *  * ------------------------------------------------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------------------------------------------------
  *
  * 🚦 Step 1: Trigger Words → Think Sliding Window
  *
