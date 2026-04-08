@@ -1,5 +1,11 @@
 package com.huhx0015.algorithmtester.twentytwentysix.trees
 
+/**
+ *  Notes:
+ *  Data Structure to Use: Queue (FIFO: First in, first out) - Deque (double ended Queue)
+ *
+ *  Time Complexity: O(n) | Space Complexity: O(n) | Where `n` is number of nodes in the tree.
+ */
 object BreadthFirstSearch {
 
     @JvmStatic fun main(args: Array<String>) {
@@ -41,7 +47,6 @@ object BreadthFirstSearch {
                 // Remove the front node from the queue (FIFO behavior)
                 val curr = queue.removeFirst()
 
-                // Print the current node's value
                 print("${curr.value} ")
 
                 // If the current node has a left child,
@@ -60,7 +65,6 @@ object BreadthFirstSearch {
             // Move to the next level after processing all nodes at current level
             level++
 
-            // Print a newline after finishing the current level
             println()
         }
     }
