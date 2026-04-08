@@ -3,7 +3,7 @@ package com.huhx0015.algorithmtester.twentytwentysix.problems.trees
 import com.huhx0015.algorithmtester.twentytwentysix.trees.TreeNode
 
 /**
- * Neetcode.ip
+ * Neetcode.io
  *
  * Problem: Binary Tree Level Order Traversal
  * Difficulty: Medium
@@ -25,6 +25,8 @@ import com.huhx0015.algorithmtester.twentytwentysix.trees.TreeNode
  * Constraints:
  * 0 <= The number of nodes in the tree <= 1000.
  * -1000 <= Node.val <= 1000
+ *
+ * Pattern: Breadth First Search
  */
 object BinaryTreeLevelOrderTraversal {
 
@@ -48,6 +50,7 @@ object BinaryTreeLevelOrderTraversal {
         println("Level Order: Result was ${result.toList()}")
     }
 
+    // levelOrder(): Time Complexity: O(n) | Space Complexity: O(n)
     fun levelOrder(root: TreeNode?): List<List<Int>> {
         // ArrayQueue (double-ended queue) is used to store the traversed results, level by level.
         val queue: ArrayDeque<TreeNode> = ArrayDeque()
@@ -76,25 +79,26 @@ object BinaryTreeLevelOrderTraversal {
             // Iterates through all nodes at the current level.
             for (i in 0 until levelLength) {
                 val currentNode = queue.removeFirst() // Removes the front node of the queue.
-                println("Level Order: WHILE: Current node value is: ${currentNode.value}")
+                println("Level Order: FOR: Current node value is: ${currentNode.value}")
 
                 levelTraversalList.add(currentNode.value) // Add the current node to the traversal list.
 
                 // Checks the left node of the current node, if it exists, it is added to the queue.
                 currentNode.left?.let { node ->
-                    println("Level Order: WHILE: Current node has existing left child node with value ${node.value}, adding to queue.")
+                    println("Level Order: FOR: Current node has existing left child node with value ${node.value}, adding to queue.")
                     queue.add(node)
                 }
 
                 // Checks the right node of the current node, if it exists, it is added to the queue.
                 currentNode.right?.let { node ->
-                    println("Level Order: WHILE: Current node has existing right child node with value ${node.value}, adding to queue.")
+                    println("Level Order: FOR: Current node has existing right child node with value ${node.value}, adding to queue.")
                     queue.add(node)
                 }
 
                 currentTreeLevel++ // Increments the currentTreeLevel.
             }
 
+            println("Level Order: WHILE: Adding the tree level $currentTreeLevel traversal list: ${levelTraversalList.toList()}")
             traversalList.add(levelTraversalList) // Adds the levelTraversalList to the traversalList.
         }
 
