@@ -76,7 +76,7 @@ package com.huhx0015.algorithmtester.twentytwentysix.problems.trees
  * remove the duplicate from the right subtree
  *
  * That is a standard BST deletion technique.
- * 
+ *
  * ---------------------------------------------------------------------------------------------------------------------
  *
  * Time complexity
