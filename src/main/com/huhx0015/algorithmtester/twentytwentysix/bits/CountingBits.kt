@@ -55,7 +55,7 @@ object CountingBits {
         n = n shr 1
     }
 
-    // Count the number of 1 bits in an int
+    // countBits(): Count the number of 1 bits in an int.
     fun countBits(num: Int): Int {
         var n = num
         var count = 0
