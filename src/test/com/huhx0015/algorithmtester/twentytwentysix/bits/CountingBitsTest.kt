@@ -12,9 +12,9 @@ class CountingBitsTest {
         assertEquals(4, result1)
 
         val result2 = countBits(num = 4)
-        assertEquals(4, result1)
+        assertEquals(1, result2)
 
         val result3 = countBits(num = 100)
-        assertEquals(4, result1)
+        assertEquals(3, result3)
     }
 }

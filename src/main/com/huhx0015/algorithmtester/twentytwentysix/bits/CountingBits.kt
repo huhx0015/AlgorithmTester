@@ -30,10 +30,10 @@ object CountingBits {
         println("Count Bits: Result: $result1\n")
 
         val result2 = countBits(num = 44)
-        println("Count Bits: Result: $result1\n")
+        println("Count Bits: Result: $result2\n")
 
         val result3 = countBits(num = 100)
-        println("Count Bits: Result: $result1\n")
+        println("Count Bits: Result: $result3\n")
     }
 
     fun operations() {
