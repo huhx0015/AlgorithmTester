@@ -75,7 +75,7 @@ object LinkedListCycle {
             if (isNodeVisited) {
                 println("Linked List Cycle: WHILE: A cycle has been found, with current node: ${currentNode.`val`}")
                 return true // A cycle has been found in the LinkedList.
-            } else{
+            } else {
                 println("Linked List Cycle: WHILE: No cycle detected, adding current node with value ${currentNode.`val`} to the visitedNodes set.")
                 visitedNodes.add(currentNode) // Adds the currentNode to the visitedNodes HashSet.
                 currentNode = currentNode.next // Updates the currentNode to point to the next Node.
