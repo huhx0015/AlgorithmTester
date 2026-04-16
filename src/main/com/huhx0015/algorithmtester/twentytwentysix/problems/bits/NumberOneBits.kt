@@ -22,8 +22,13 @@ object NumberOneBits {
 
     private const val VAL_MAX_BITS = 32 // Represents the max number of bits (32-bit) value for this problem.
 
-    @JvmStatic fun main(args: Array<String>) {
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val result1 = hammingWeight(n = 11110000)
+        println("Number of 1-Bits: Result is: $result1\n")
 
+        val result2 = hammingWeight(n = 10000001)
+        println("Number of 1-Bits: Result is: $result2\n")
     }
 
     fun hammingWeight(n: Int): Int {
@@ -41,6 +46,7 @@ object NumberOneBits {
             }
             number = number shr 1 // Same as n / 2, shifts the bits to the right.
         }
+        println("Number of 1-Bits: Number of 1-bits for $n is: $numberOfOneBits")
         return numberOfOneBits
     }
 }
