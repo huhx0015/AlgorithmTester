@@ -1,5 +1,7 @@
 package com.huhx0015.algorithmtester.twentytwentysix.kotlin
 
+import kotlin.random.Random
+
 /**
  * You are given a list of transactions returned from an API.
  *
@@ -28,7 +30,9 @@ package com.huhx0015.algorithmtester.twentytwentysix.kotlin
 object BuildTransactionSections {
 
     @JvmStatic fun main(args: Array<String>) {
-
+        buildTransactionSections(
+            transactions = generateTransactions()
+        )
     }
 
     data class Transaction(
@@ -63,5 +67,62 @@ object BuildTransactionSections {
         // TODO: Implement transactionSection functionality.
 
         return transactionSectionList
+    }
+
+    fun generateTransactions(): List<Transaction> {
+        val transactionList: MutableList<Transaction> = mutableListOf()
+
+        transactionList.add(
+            Transaction(
+                id = Random.nextInt(),
+                timestamp = "2026-04-18T09:30:00Z",
+                description = "CreditUnion Transaction",
+                amountCents = 4000,
+                type = TransactionType.CREDIT,
+                pending = false
+            )
+        )
+        transactionList.add(
+            Transaction(
+                id = Random.nextInt(),
+                timestamp = "2026-04-15T09:30:00Z",
+                description = "Best Buy Transaction",
+                amountCents = 530,
+                type = TransactionType.CREDIT,
+                pending = false
+            )
+        )
+        transactionList.add(
+            Transaction(
+                id = Random.nextInt(),
+                timestamp = "2026-04-13T09:30:00Z",
+                description = "Wells Fargo Transaction",
+                amountCents = 10000,
+                type = TransactionType.DEBIT,
+                pending = false
+            )
+        )
+        transactionList.add(
+            Transaction(
+                id = Random.nextInt(),
+                timestamp = "2026-04-20T09:30:00Z",
+                description = "IRS Transaction",
+                amountCents = 10300,
+                type = TransactionType.DEBIT,
+                pending = false
+            )
+        )
+        transactionList.add(
+            Transaction(
+                id = Random.nextInt(),
+                timestamp = "2026-04-21T09:30:00Z",
+                description = "Google Transaction",
+                amountCents = 70000,
+                type = TransactionType.CREDIT,
+                pending = false
+            )
+        )
+
+        return transactionList
     }
 }
